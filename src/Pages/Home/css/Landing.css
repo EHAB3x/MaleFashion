@@ -1,0 +1,63 @@
+.landing{
+    background-image: url('../../../Images/hero-1.jpg');
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+}
+.landing .desc{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    text-align: start;
+}
+.landing .desc .head{
+    color: #e53637;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+}
+.landing .desc h2{
+    font-size: 36px;
+    line-height: 48px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+.landing .desc p{
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 35px;
+    width: 70%;
+}
+.landing .desc a{
+    display: flex !important;
+    flex-direction: row;
+    width:fit-content;
+    background-color: black;
+    color: white;
+    padding: 14px 30px;
+    align-items: center;
+    font-weight: 700;
+    flex-wrap: nowrap;
+}
+.landing .desc a svg{
+    margin-left: 10px;
+}
+.landing .social{
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    bottom: 5%;
+    left: 5%;
+}
+.landing .social svg{
+    margin-left: 20px;
+}

@@ -1,0 +1,47 @@
+footer{
+    background-color: black;
+    color: white;
+    padding: 40px 40px 20px 40px;
+    text-align: start;
+}
+
+footer .content{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px , 1fr));
+    gap: 30px;
+    padding-bottom: 20px;
+}
+footer .content div{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+footer .content div ul li{
+    margin-bottom: 10px;
+}
+footer .content div ul li a{
+    color: #b7b7b7b7;
+}
+
+footer .content .one .logo{
+    width: 195px;
+    height: 23px;
+}
+footer .content .one .payment{
+    width: 218px;
+    height: 23px;
+}
+footer .divider{
+    width: 50%;
+    margin: 0 auto;
+}
+footer .copy_right{
+    border-top:1px solid rgba(255, 255, 255, 0.1); ;
+}
+footer .copy_right p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}

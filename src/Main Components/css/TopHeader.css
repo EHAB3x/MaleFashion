@@ -1,0 +1,43 @@
+.top_header{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 0;
+}
+.top_header .right ul{
+    display: flex;
+    align-items: center;
+}
+.top_header .right ul li{
+    margin: 5px;
+    height: 24px;
+}
+.top_header .right ul li a{
+    height: 24px;
+}
+.top_header .right ul li button{
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    height: 100%;
+    font-size: 14px;
+    align-items: center;
+    font-weight: normal;
+}
+.top_header .right ul li button svg{
+    margin-left: 4px;
+}
+
+@media screen and (max-width: 768px){
+    .top_header{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    .top_header{
+        display: none;
+    }
+}

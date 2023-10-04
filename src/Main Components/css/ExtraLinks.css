@@ -1,0 +1,11 @@
+.speed-dial{
+    margin-right: 20px;
+    z-index: 999999;
+    position: fixed;
+    top: 90%;
+}
+@media screen and (min-width: 960px) {
+    .speed-dial{
+        display: none;
+    }    
+}
