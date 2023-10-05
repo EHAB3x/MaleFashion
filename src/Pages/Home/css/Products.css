@@ -1,0 +1,50 @@
+.products{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.products h2{
+    font-size: 24px;
+    font-weight: bold;
+}
+.products .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px , 1fr));
+    gap: 50px;
+    padding: 45px 0;
+}
+.products .container .box{
+    position: relative;
+}
+
+.products .container .box .image img{
+    height: 260px;
+    width: 100%;
+}
+.products .container .box .desc{
+    padding-top:25px;
+    text-align: start;
+    position: relative;
+}
+.products .container .box .desc .fav{
+    display: flex;
+    justify-content: space-between;
+}
+.products .container .box .desc .fav h4{
+    color: #111111;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.products .container .box .desc .fav svg{
+    cursor: pointer;
+}
+.products .container .box .desc .rating span svg{
+    color: #f7941d;
+    font-size: 13px;
+}
+.products .container .box .desc .price{
+    color: #0d0d0d;
+    font-weight: 700;
+}
