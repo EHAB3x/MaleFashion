@@ -1,0 +1,5 @@
+.sign_up{
+    height: calc(100vh - 66px);
+    display: flex;
+    justify-content: center;
+}

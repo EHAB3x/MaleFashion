@@ -7,10 +7,9 @@ import { useSelector } from 'react-redux';
    
 const TopHeader = () => {
     const [openMenu, setOpenMenu] = useState(false);
-    const user = useSelector(state => state.user);
     useEffect(()=>{
         const sign = document.querySelector('#sign');
-        if(user.length != 0){
+        if(window.localStorage.getItem('id')){
             sign.style.cssText="display:none";
         }
     })

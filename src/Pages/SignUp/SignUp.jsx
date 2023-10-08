@@ -8,10 +8,11 @@ import {
     Typography,
   } from "@material-tailwind/react";
 import { Link } from 'react-router-dom';
+import'./CSS/SignUp.css'
 
 const SignUp = () => {
   return (
-    <Card className='py-5' color="transparent" shadow={false}>
+    <Card className='py-5 sign_up' color="transparent" shadow={false}>
       <Typography variant="h4" color="blue-gray">
         Sign Up
       </Typography>

@@ -11,6 +11,7 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../../RTK/Slicces/User';
+import './CSS/SignIn.css'
 
 
 const SignIn = () => {
@@ -30,7 +31,7 @@ const SignIn = () => {
             password
             })
             .then(data => {
-                dispatch(addUser(data.data));
+                window.localStorage.setItem('id',data.data.user.id);
                 document.cookie = `username=${JSON.stringify(data.data)}; expires=Thu, 30 ${month} 2023 12:00:00 UTC; path=/`;
                 navigate('/');
             })
@@ -38,7 +39,7 @@ const SignIn = () => {
         }
     }
   return (
-    <Card className='py-5' color="transparent" shadow={false}>
+    <Card className='py-5 sign_in' color="transparent" shadow={false}>
       <Typography variant="h4" color="blue-gray">
         Sign In
       </Typography>

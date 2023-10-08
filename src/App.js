@@ -13,6 +13,7 @@ import Products from './Pages/Home/Products';
 import Sale from './Pages/Home/Sale';
 import { useDispatch } from 'react-redux';
 import { addUser } from './RTK/Slicces/User';
+import Profile from './Pages/Profile/Profile';
 
 function App() {
   const dispatch = useDispatch()
@@ -23,25 +24,47 @@ function App() {
 
   return (
     <div className="App">
-      <TopHeader/>
-      <BottomHeader />
-      <ExtraLinks />
+      
       <Routes>
           <Route path='/' element={
           <>
+            <TopHeader/>
+            <BottomHeader />
+            <ExtraLinks />
             <Landing/>
             <Categories />
             <Products/>
             <Sale/>
+            <Footer />
           </>
           } />
 
-          <Route path='/signin' element={<SignIn />}/>
+          <Route path='/signin' element={
+            <>
+              <BottomHeader />
+              <ExtraLinks />
+              <SignIn />
+          </>
+          }/>
 
-          <Route path='/signup' element={<SignUp />}/>
+          <Route path='/signup' element={
+            <>
+              <BottomHeader />
+              <ExtraLinks />
+              <SignUp />
+            </>
+          }/>
+
+          <Route path='/profile/:userId' element={
+          <>
+          <BottomHeader/>
+          <Profile/>
+          <Footer/>
+          </>
+        }></Route>
       </Routes>
 
-      <Footer />
+      
     </div>
   );
 }

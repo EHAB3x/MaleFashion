@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Container, NavDropdown } from 'react-bootstrap';
 import './css/Products.css'
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [fav, setFav]= useState([]);
+  
   useEffect(()=>{
     fetch('https://civet-top-actively.ngrok-free.app/api/product', {
       method: "get",

@@ -1,5 +1,5 @@
 import './css/BottomHeader.css';
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {Navbar, Collapse, Typography, IconButton, List, ListItem, Menu, MenuHandler, MenuList, MenuItem, Chip,Avatar} from "@material-tailwind/react";
 import {ChevronDownIcon, Bars3Icon, XMarkIcon, FlagIcon, ChatBubbleOvalLeftIcon, UsersIcon, BuildingStorefrontIcon} from "@heroicons/react/24/outline";
  import logo from '../Images/logo.png'
@@ -177,16 +177,28 @@ function NavListMenu() {
   }
    
   export function BottomHeader() {
-    const [openNav, setOpenNav] = React.useState(false);
-    const cookies = document.cookie
-    React.useEffect(() => {
+    const [openNav, setOpenNav] = useState(false);
+    const [image, setImage] = useState('');
+    const infos = document.cookie;
+    const token = useSelector(state => state.user.token);
+    console.log(image);
+    useEffect(() => {
       window.addEventListener(
         "resize",
         () => window.innerWidth >= 960 && setOpenNav(false)
         );
-    }, []);
-
-   
+        fetch(`https://civet-top-actively.ngrok-free.app/api/admin/users/${window.localStorage.getItem('id')}`, {
+            method: "get",
+            headers: new Headers({
+              "ngrok-skip-browser-warning": "69420",
+              'Content-Type': 'application/json',
+            'Authorization': 'Bearer '+ token, 
+            }),
+          })
+            .then((response) => response.json())
+            .then((data) => setImage(data.data.image))
+            .catch((err) => console.log(err));
+      }, [token]);
     return (
       <Navbar className="mx-auto px-4 py-2">
         <div className="flex items-center justify-between text-blue-gray-900">
@@ -208,13 +220,13 @@ function NavListMenu() {
             <span>0</span>
             </div>
 
-            <Menu >
+            {infos.length !== 0 && <Menu >
               <MenuHandler>
                 <Avatar
                   variant="circular"
                   alt="tania andrew"
                   className="cursor-pointer profile"
-                  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                  src={`https://civet-top-actively.ngrok-free.app${image}`}
                 />
               </MenuHandler>
               <MenuList>
@@ -234,7 +246,7 @@ function NavListMenu() {
                     />
                   </svg>
                   <Typography variant="small" className="font-normal">
-                    My Profile
+                    <Link to={`/profile/${window.localStorage.getItem('id')}`}>My Profile</Link>
                   </Typography>
                 </MenuItem>
                 <MenuItem className="flex items-center gap-2">
@@ -321,7 +333,7 @@ function NavListMenu() {
                   </Typography>
                 </MenuItem>
               </MenuList>
-            </Menu>
+            </Menu>}
 
           </div>
           <IconButton
