@@ -14,11 +14,12 @@ import Sale from './Pages/Home/Sale';
 import { useDispatch } from 'react-redux';
 import { addUser } from './RTK/Slicces/User';
 import Profile from './Pages/Profile/Profile';
+import ProductPage from './Pages/ProductPage/ProductPage';
 
 function App() {
   const dispatch = useDispatch()
   const cookies = document.cookie;
-  if(cookies != ""){
+  if(cookies !== ""){
     dispatch(addUser(JSON.parse(cookies.slice(9))))   
   }
 
@@ -55,11 +56,21 @@ function App() {
             </>
           }/>
 
-          <Route path='/profile/:userId' element={
+          <Route path='/profile/update' element={
           <>
           <BottomHeader/>
+          <ExtraLinks />
           <Profile/>
           <Footer/>
+          </>
+        }></Route>
+
+        <Route path='/products/:productId' element={
+          <>
+          <BottomHeader />
+          <ExtraLinks />
+          <ProductPage />
+          <Footer /> 
           </>
         }></Route>
       </Routes>

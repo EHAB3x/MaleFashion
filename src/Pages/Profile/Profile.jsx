@@ -4,9 +4,7 @@ import React, { useEffect, useState } from 'react'
 import {
     Card,
     Input,
-    Checkbox,
     Button,
-    Typography,
   } from "@material-tailwind/react";
 import axios from 'axios';
 const Profile = () => {
@@ -65,9 +63,9 @@ const Profile = () => {
                 <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
                     <div className="mb-4 flex flex-col gap-6">
                     <Input size="lg" label="Name" defaultValue={name} autoComplete='off' onChange={(e)=> setName(e.target.value)}/>
+                    <Input size="lg" label="E-mail" defaultValue={mail} autoComplete='off' onChange={(e)=> setMail(e.target.value)} disabled/>
                     <Input size="lg" label="Address" defaultValue={address} autoComplete='off' onChange={(e)=> setAddress(e.target.value)}/>
                     <Input size="lg" label="Phone" defaultValue={phone} autoComplete='off' onChange={(e)=> setPhone(e.target.value)}/>
-                    <Input size="lg" label="E-mail" defaultValue={mail} autoComplete='off' onChange={(e)=> setMail(e.target.value)}/>
                     </div>
                     <Button className="mt-6" fullWidth onClick={()=>update()}>
                         Update

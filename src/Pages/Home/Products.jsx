@@ -27,7 +27,7 @@ const Products = () => {
       <Container>
         {products.map((product)=>{
           return(
-            <div to={`/products/${product.id}`} className="box" key={product.id}>
+            <Link to={`/products/${product.id}`} className="box" key={product.id}>
               <div className="image">
                 <img src={`https://civet-top-actively.ngrok-free.app${product.images[0]}`} alt={product.title} />
               </div>
@@ -44,7 +44,7 @@ const Products = () => {
                 <p className='price'>${product.price}</p>
               </div>
 
-            </div>
+            </Link>
           )
         })}
       </Container>
