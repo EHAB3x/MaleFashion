@@ -23,7 +23,7 @@ const Profile = () => {
             headers: new Headers({
               "ngrok-skip-browser-warning": "69420",
               'Content-Type': 'application/json',
-            'Authorization': 'Bearer '+ token, 
+                'Authorization': 'Bearer '+ token, 
             }),
           })
             .then((response) => response.json())
@@ -40,7 +40,7 @@ const Profile = () => {
     },[token])
 
     const update = ()=>{
-        axios.patch(`https://civet-top-actively.ngrok-free.app/api/profile/${id}`,{
+        axios.patch(`https://civet-top-actively.ngrok-free.app/api/profile/update`,{
             name : name,
             address: address,
             phone: phone,

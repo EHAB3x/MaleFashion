@@ -15,6 +15,7 @@ import { useDispatch } from 'react-redux';
 import { addUser } from './RTK/Slicces/User';
 import Profile from './Pages/Profile/Profile';
 import ProductPage from './Pages/ProductPage/ProductPage';
+import Cart from './Pages/Cart/Cart';
 
 function App() {
   const dispatch = useDispatch()
@@ -70,6 +71,15 @@ function App() {
           <BottomHeader />
           <ExtraLinks />
           <ProductPage />
+          <Footer /> 
+          </>
+        }></Route>
+
+        <Route path='/cart' element={
+          <>
+          <BottomHeader />
+          <ExtraLinks />
+          <Cart />
           <Footer /> 
           </>
         }></Route>

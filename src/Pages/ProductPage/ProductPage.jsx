@@ -3,7 +3,8 @@ import './productPage.css'
 import { useParams } from 'react-router-dom'
 import {Button,} from "@material-tailwind/react";
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { cartNumber } from '../../RTK/Slicces/Cart';
 const ProductPage = () => {
     const {productId} = useParams({});
     const [product , setProduct] = useState({})
@@ -14,7 +15,7 @@ const ProductPage = () => {
     const [selectedSize, setSelectedSize] = useState(null);
     const [selectedColor, setSelectedColor] = useState(null);
     const token= useSelector(state => state.user.token);
-
+    const dispatch = useDispatch()
     useEffect(()=>{
         fetch(`https://civet-top-actively.ngrok-free.app/api/product/${productId}`,{
             method: "get",
@@ -49,12 +50,9 @@ const ProductPage = () => {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer '+ token,   
             }
-        })
+        }).then(data => dispatch(cartNumber(data.data.data.id)))
     }
-console.log(product);
     
-
-
   return (
     <div className='productPage'>
             <div className="left">
