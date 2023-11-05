@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './Cart.css';
 import { useSelector } from 'react-redux';
-import axios from 'axios';
 
 const Cart = () => {
     const token= useSelector(state => state.user.token);
     const cartId= useSelector(state => state.cart);
     const [products, setProducts] = useState([]);
+    const [allCalc , setAllCalc] = useState(0)
     useEffect(()=>{
         fetch(`https://civet-top-actively.ngrok-free.app/api/cart`, {
             method: "get",
@@ -19,13 +19,20 @@ const Cart = () => {
         .then(res => res.json())
         .then(data => {
           setProducts(data)
-          
         })
         .catch(err=> console.log(err));
         
+        if(products.length !== 0){
+          const allCalc = document.getElementsByClassName("calc");
+          var result = 0;
+          console.log(Array.from(allCalc));
+          Array.from(allCalc).map((span)=>{
+          result +=Number(span.innerText);
+          })
+          return setAllCalc(result)
+        }
 
-        
-    },[token])
+    },[token, products.length, allCalc])
 
     const deleteProduct = (e)=>{
       fetch(`https://civet-top-actively.ngrok-free.app/api/cart/${cartId}`,{
@@ -85,7 +92,7 @@ const Cart = () => {
 
           <div className="money">
             <h6>Total</h6>
-            <span>$ 150</span>
+            <span>$ {allCalc}</span>
           </div>
 
           <div className="money">
